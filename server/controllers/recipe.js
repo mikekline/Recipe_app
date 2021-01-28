@@ -22,13 +22,13 @@ createRecipe = (req, res) => {
         .then(() => {
             return res.status(201).json({
                 success: true,
-                message: 'recipe created!',
+                message: 'recipe added!',
             })
         })
         .catch(error => {
             return res.status(400).json({
                 error,
-                message: 'recipe not created!',
+                message: 'recipe not added!',
             })
         })
 

@@ -6,7 +6,7 @@ mongoose
         console.error('Connection error', e.message)
     })
 
-//defult connection of the mongoose connection, will not work with out connection method
+//defult connection of the mongoose 
 const db = mongoose.connection
 
 module.exports = db

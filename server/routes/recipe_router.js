@@ -1,9 +1,8 @@
 const express = require('express')
-
+const router = express.Router()
 const recipe = require('../controllers/recipe')
 
-const router = express.Router()
-
-router.post('/recipe', recipe.createRecipe)
+//use this as endpoint conect to form post
+router.post('/add_recipe', recipe.createRecipe)
 
 module.exports = router
