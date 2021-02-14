@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const Port = 3000;
+const Port = 4000;
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors())
+
 
 
 //conecting to the database, uses db/index.js
@@ -16,7 +17,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 
 const recipeRouter = require('./routes/recipe_router')
-app.use('/recipe_api', recipeRouter) //use = mounts path |||  /api or / ||| use as end point where form is
+app.use('/recipe_app', recipeRouter) //use = mounts path |||  (/api or /?) ||| use as end point where form is
 
 
 /* getting from server and displaying /test end point */ 
