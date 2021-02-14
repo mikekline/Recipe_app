@@ -11,7 +11,7 @@ class Main extends Component {
 
 
     return (
-      <div class="mainPage">
+      <div className="mainPage">
         <header>
           A Cook's tale  in recipes and other nonsense
         </header>

@@ -18,16 +18,16 @@ class App extends Component {
 
 
      <BrowserRouter>
-<div class="backdrop">
-<p class="title">Menu</p>
+<div className="backdrop">
+<p className="title">Menu</p>
   <nav>
     
       
-        <Link   class="card recipe" to="/recipe_book"><p class="cardTitle">My Recipe book</p></Link>
-        <Link class="card bigOven" to="/github"><img class="bigOvenImg" src="http://mda.bigoven.com/images/logos/BigOven_logo_rgb150x40.png" />
-      <p class="cardTitle">Recipes from Big oven</p></Link>
-        <Link class="card conversion" to="/products"><p class="cardTitle">Measurement Conversions</p></Link>
-        <Link class="card timer" to="/user"><p class="cardTitle">Kitchen Timer</p></Link>
+        <Link   className="card recipe" to="/recipe_book"><p class="cardTitle">My Recipe book</p></Link>
+        <Link className="card bigOven" to="/github"><img class="bigOvenImg" src="http://mda.bigoven.com/images/logos/BigOven_logo_rgb150x40.png" />
+      <p className="cardTitle">Recipes from Big oven</p></Link>
+        <Link className="card conversion" to="/products"><p class="cardTitle">Measurement Conversions</p></Link>
+        <Link className="card timer" to="/user"><p class="cardTitle">Kitchen Timer</p></Link>
     
    
   </nav>
