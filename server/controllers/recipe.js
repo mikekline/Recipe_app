@@ -4,17 +4,21 @@ createRecipe = (req, res) => {
     const body = req.body
 
 
-    // if (!body) {
-    //     return res.status(400).json({
-    //         success: false,
-    //         error: 'You must provide a title',
-    //     })
-    // }
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'Please add a recipe',
+        })
+    }
+
     console.log(body)
     const recipe = new Recipe(body)
     
     if (!recipe) {
-        return res.status(400).json({ success: false, error: err })
+        return res.status(400).json({ 
+            success: false, 
+            error: err 
+        })
     }
 
     recipe

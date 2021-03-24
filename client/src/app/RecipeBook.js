@@ -1,16 +1,7 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './book.css';
+import './RecipeBook.css';
 
-
-const Todo = props => (
-  <tr>
-      <td>{props.recipeTest.todo_description}</td>
-      <td>{props.recipeTest.todo_responsible}</td>
-      <td>{props.recipeTest.todo_priority}</td>
-  </tr>
-)
 
 
 class RecipeBook extends Component {
@@ -30,6 +21,7 @@ class RecipeBook extends Component {
     };
   }
 
+  //gets a list of all recipes from server
   componentDidMount() {
     axios.get('http://localhost:4000/recipe_app/recipes')
         .then(response => {
@@ -60,6 +52,7 @@ class RecipeBook extends Component {
   }
 
   onSubmit(e) {
+    //on submitting form adds form inputs to state and sends state to server endpoint with post
     e.preventDefault();
     
     console.log(`Form submitted:`);
@@ -72,7 +65,7 @@ class RecipeBook extends Component {
       ingredients: this.state.ingredients,
       directions: this.state.directions
     }
-
+    
     axios.post('http://localhost:4000/recipe_app/add_recipe', newRecipe)
             .then(res => {console.log(res.data);
             axios.get('http://localhost:4000/recipe_app/recipes')
@@ -86,7 +79,7 @@ class RecipeBook extends Component {
             
       });
 
-    
+    //resets state
     this.setState({
       title: '',
       ingredients: '',
@@ -96,14 +89,10 @@ class RecipeBook extends Component {
 
 
 
-  listRecipes() {
-    return this.state.allRecipes.map(function(eachRecipe, i){
-      return <div recipeTest={eachRecipe} key={i} />;
-    })
-  }
 
   render() {
-    const listRecipesTest=this.state.allRecipes.map((recipe)=>
+    //gets allRecipes state once loaded from server to be displayed
+    const listRecipes=this.state.allRecipes.map((recipe)=>
     <tr key={recipe.key}>
         <td>{recipe.title}</td>
         <td>{recipe.ingredients}</td>
@@ -139,18 +128,11 @@ class RecipeBook extends Component {
         </form>
         
         <div>
-                <h3>Recipes</h3>
-                <table className="table table-striped" style={{ marginTop: 20 }} >
-                    <thead>
-                        <tr>
-                          <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {listRecipesTest}
-                    </tbody>
-                </table>
-            </div>
+          <h3>Recipes</h3>
+
+          {listRecipes}
+            
+        </div>
 
       </div>        
     )

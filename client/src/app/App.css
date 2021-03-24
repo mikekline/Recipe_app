@@ -1,0 +1,333 @@
+/* fonts */
+@import url("https://use.typekit.net/wsq3wkc.css"); /*for sarah script*/
+@font-face {
+  font-family: Petit Formal Script;
+  src: url('../fonts/PetitFormalScript-Regular.ttf');
+}
+@font-face {
+  font-family: Amptmann Script;
+  src: url('../fonts/Amptmann Script.ttf');
+}
+@font-face {
+  font-family: ChopinScrip;
+  src: url('../fonts/ChopinScript.ttf');
+}
+
+
+/* resets */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  border: 0 0 0 0;
+}
+
+
+/* main page */
+
+body {
+  background-color: aliceblue;
+  background-image: url('../assets/food-1898194_1920.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw 120vh;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  height: 48px;
+  width: 100vw;  
+  text-align: center;
+  text-shadow: .5px .5px  #d52222;
+  background: rgb(130,130,130);
+  background: linear-gradient(169deg, rgba(130,130,130,1) 3%, rgba(181,181,181,1) 38%, rgba(241,241,241,1) 100%);
+  opacity: .9;  
+  /* font-family: "Amptmann Script", sans-serif; */
+  /* font-family: "ChopinScrip", sans-serif; */
+  font-family: 'Petit Formal Script', cursive;
+  /* font-family: "sarah-script",sans-serif; */
+  font-size: 6vw;
+  font-weight: bolder;
+}
+
+
+/* navigation */
+
+.backdrop {
+  margin: auto;
+  margin-bottom: 35vh;
+}
+
+.title {
+  display: none;
+}
+
+
+nav {
+  display: grid;
+  grid-template-columns: 80px 20px 20px 80px;
+  grid-template-rows: 70px 10px 10px 70px;
+  height: 190px;
+  width: 200px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 84px;
+  width: 80px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.card:active {
+  opacity: .5;
+}
+
+
+/* individual cards */
+.recipe {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  background-image: url('../assets/Cook-Book-icon.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 80%;
+}
+
+.bigOven {
+  background-repeat: no-repeat;
+  background-position: center 20px;
+  background-size: contain;
+  grid-column:  4 / 4;
+  grid-row: 1 /  1;
+}
+
+.bigOvenImg {
+  margin-bottom: 25px;
+}
+
+.conversion {
+  background-image: url('../assets/Units-2-icon.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  grid-column:  1 /  1;
+  grid-row: 4 / 4;
+}
+
+.timer {
+  background-image: url('../assets/Clock-icon.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  grid-column: 4 / 4;
+  grid-row: 4 / 4;
+}
+
+.cardTitle {
+  margin-bottom: -2px;
+  font-weight: bolder;
+  color: black;
+}
+
+.cardTitle:visited {
+  color: black;
+}
+ 
+
+/* footer */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0px;
+  height: 40px;
+  width: 100vw;  
+  text-align: center;
+  background: black;
+    color: whitesmoke;
+  /* background: rgb(130,130,130);
+  background: linear-gradient(169deg, rgba(130,130,130,1) 3%, rgba(181,181,181,1) 38%, rgba(241,241,241,1) 100%); */
+  /* opacity: .8;  */
+}
+  
+footer li {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+
+/* screen for when moblie is rotated to landscape */
+
+.rotate {
+  display:none;
+}
+
+@media screen and (orientation: landscape) and (max-device-width: 1280px)  {
+  * {
+    margin: 0;
+  }
+
+  body {
+    background-image: none;
+  }
+
+  .mainpage {
+    display:flex;
+    justify-content: center;
+  }
+
+  .rotate {
+    display: block;
+    padding: 45vh 36vw;
+    height: 100vh;
+    width: 100vw;
+    background-color:black;
+    color: white;
+    font-size:large;
+  }
+
+  header, nav, footer, .backdrop {
+    display:none
+  }
+}
+
+
+
+/* desktop styles */
+
+@media screen and (min-width: 1281px) {
+  body {
+    background-image: url('../assets/food-1932466_1920.jpg');
+  }
+
+  header {
+    height: 2em;
+    font-size: 2vw;
+  }
+
+  .backdrop {
+    background-image: url('../assets/slate-186307_1280.jpg');
+    background-size: cover;
+    height: 57vh;
+    width: 33vw;
+    margin:8vh 28px;
+    border-radius: 30px;
+    border: 0px solid black;
+    box-shadow: 4px 4px 20px 0px black;
+  }
+
+  .title {
+    display: block;
+    text-align: center;
+    margin: 15px 0 0px 0;
+    font-size: 3vh;
+  }
+
+  nav {
+    grid-template-columns: 12vw auto auto 12vw;
+    grid-template-rows: 22vh auto auto 22vh;
+    height:46vh;
+    width: 26vw;
+    margin: 2vh auto 35vh auto;
+  }
+
+  .card {
+    height: 22vh;
+    width: 12vw;
+    border-radius: 30px;
+    border: 1px solid black;
+    box-shadow: 4px 4px 16px 0px black;
+  }
+
+  .card:hover .cardTitle {
+    background:aliceblue;
+    opacity: .8;
+  }
+
+  .card:hover {
+    border: .5px solid aliceblue;
+  }
+
+  .card:active .cardTitle {
+    background:brown;
+    opacity: .8;
+  }
+
+  .card:active {
+    opacity: 1;
+    border: .5px solid brown;
+  }
+
+
+/* individual cards */
+  .recipe {
+    background-image: url('../assets/cook-1375788_640.jpg');
+    background-size: cover;
+  }
+
+  .bigOven {
+    background-image: url('../assets/stove-3729044_640.jpg');
+    background-size: cover;
+    background-position: center top;
+    justify-content: space-between;
+  }
+
+  .bigOvenImg {
+    margin-top: 0;
+    background-color: rgba(130,130,130, .7);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .conversion {
+    background-image: url('../assets/kelvin-theseira-FE_uysP-cfw-unsplash.jpg');
+    background-size: cover;
+  }
+
+  .timer {
+    background-image: url('../assets/marcelo-leal-vZawEq0Eexo-unsplash.jpg');
+    background-size: cover;
+  }
+
+  .cardTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    background-color: rgba(130,130,130, .8);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+}
