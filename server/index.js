@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const cors = require('cors');
 const Port = 4000;
 
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-
+// app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
+app.use(express.urlencoded());
+app.use(express.json());
 
 
 //conecting to the database, uses db/index.js

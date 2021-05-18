@@ -1,10 +1,11 @@
 .book {
     position: absolute;
-    top: 20vh;
-    left: 40vw;
-    background-color: lightcyan;
-    height: 500px;
-    width: 500px;
+    top: -60vh;
+    left: 30vw;
+    background-color: lightgray;
+    height: 450px;
+    width: 800px;
+    overflow-y:scroll;
   }
 
   .backdrop {
@@ -17,3 +18,45 @@
     border: 0px solid black;
     box-shadow: 4px 4px 20px 0px black;
   }
+
+  form, .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+.list {
+  padding: 5px;
+}
+
+.recipeBookNav {
+  position: absolute;
+  top: 75vh;
+  left: 8vw;
+}
+
+.bookOptions {
+  margin: 10px;
+  padding: 7px;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.amount {
+  width: 7ch;
+}
+
+.ingredient {
+  width: 54ch;
+}
+
+.recipeTitle, .directions {
+  width: 70ch;
+}
+
+.directions{
+  height: 20ch;
+}
+
+select {
+  padding: 0.8px;
+}

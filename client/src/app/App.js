@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import RecipeBook from "./RecipeBook";
+import RecipeBook from "./RecipeBook.jsx";
 import './App.css';
-import './RecipeBook.css';
+// import './RecipeBook.css';
 
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
           <div className="backdrop">
             <p className="title">Menu</p>
             
-            <nav>      
+            <nav className="mainNav">      
               <Link className="card recipe" to="/recipe_book">
                 <p class="cardTitle">My Recipe book</p>
               </Link>
@@ -51,7 +51,7 @@ class App extends Component {
           </ul>
         </footer>
           
-        <div class="rotate">Please rotate Device</div>
+        <div className="rotate">Please rotate Device</div>
       </div>        
     )
   }
@@ -83,3 +83,4 @@ class NotFound extends Component {
     );
   }
 }
+
