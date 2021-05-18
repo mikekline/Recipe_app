@@ -2,39 +2,34 @@ import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import AddRecipe from './AddRecipe.jsx';
 import AllRecipes from './AllRecipes.jsx';
-// import './App.css';
-import './RecipeBook.css';
+import './css/RecipeBook.css';
 
 
 class RecipeBook extends Component {
   render() {
 
-
     return (
-      <div className="recipeBookNav">
+      <div className='recipeBookNav'>
      
-        
-
         <BrowserRouter>
-            
+        
             <nav>      
-              <Link className="bookOptions" to="/recipe_book/Add_Recipe">
+              <Link className='bookOptions' to='/recipe_book/Add_Recipe'>
                 Add a Recipe
               </Link>
-              <Link className="bookOptions" to="/recipe_book/recipes">
+              <Link className='bookOptions' to='/recipe_book/recipes'>
                 All Recipes
               </Link>
               {/* grocery list: takes ingrediants from recipes and adds them to a list able to +/- to list */}
+              {/* search and sort recipe list */}
             </nav>
 
             <Switch>
-              <Route path="/recipe_book/Add_Recipe" component={AddRecipe} />
-              <Route path="/recipe_book/recipes" component={AllRecipes} />
+              <Route path='/recipe_book/Add_Recipe' component={AddRecipe} />
+              <Route path='/recipe_book/recipes' component={AllRecipes} />
             </Switch>
          
         </BrowserRouter>
-
-
 
       </div>        
     )

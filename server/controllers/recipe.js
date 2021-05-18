@@ -1,4 +1,4 @@
-const Recipe = require('../models/recipes')
+const Recipe = require('../models/recipes');
 
 createRecipe = (req, res) => {
     const body = req.body
@@ -36,7 +36,10 @@ createRecipe = (req, res) => {
             })
         })
 
-}
+};
+
+
+
 
 getRecipes = async (req, res) => {
     await Recipe.find({}, (err, recipes) => {
@@ -50,6 +53,6 @@ getRecipes = async (req, res) => {
         }
         return res.status(200).json({ success: true, data: recipes })
     }).catch(err => console.log(err))
-}
+};
 
 module.exports = {createRecipe, getRecipes};

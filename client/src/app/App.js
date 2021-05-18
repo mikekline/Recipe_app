@@ -1,49 +1,52 @@
 import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import RecipeBook from "./RecipeBook.jsx";
-import './App.css';
-// import './RecipeBook.css';
+import RecipeBook from './RecipeBook.jsx';
+import './css/App.css';
+
+
 
 
 class App extends Component {
   render() {
 
-
     return (
-      <div className="mainPage">
+      <div className='mainPage'>
      
         <header>
           A Cook's tale  in recipes and other nonsense
         </header>
 
         <BrowserRouter>
-          <div className="backdrop">
-            <p className="title">Menu</p>
+          <div className='backdrop'>
+            <p className='title'>Menu</p>
             
-            <nav className="mainNav">      
-              <Link className="card recipe" to="/recipe_book">
-                <p class="cardTitle">My Recipe book</p>
+            <nav className='mainNav'>      
+              <Link className='card recipe' to='/recipe_book'>
+                <p className='cardTitle'>My Recipe book</p>
               </Link>
-              <Link className="card bigOven" to="/bigoven">
-                <img class="bigOvenImg" src="http://mda.bigoven.com/images/logos/BigOven_logo_rgb150x40.png" />
-                <p className="cardTitle">Recipes from Big oven</p>
+              <Link className='card bigOven' to='/bigoven'>
+                <img 
+                  className='bigOvenImg' 
+                  src='http://mda.bigoven.com/images/logos/BigOven_logo_rgb150x40.png' 
+                  alt='BigOven logo'
+                />
+                <p className='cardTitle'>Recipes from Big oven</p>
               </Link>
-              <Link className="card conversion" to="/products">
-                <p class="cardTitle">Measurement Conversions</p>
+              <Link className='card conversion' to='/products'>
+                <p className='cardTitle'>Measurement Conversions</p>
               </Link>
-              <Link className="card timer" to="/user">
-                <p class="cardTitle">Kitchen Timer</p>
+              <Link className='card timer' to='/user'>
+                <p className='cardTitle'>Kitchen Timer</p>
               </Link>
             </nav>
 
             <Switch>
-              <Route path="/recipe_book" component={RecipeBook} />
-              <Route exact path="/" component={Home} />
-              <Route path="/*" component={NotFound} />
+              <Route path='/recipe_book' component={RecipeBook} />
+              <Route exact path='/' component={Home} />
+              <Route path='/*' component={NotFound} />
             </Switch>
           </div>
         </BrowserRouter>
-
 
         <footer>
           <ul>
@@ -51,14 +54,13 @@ class App extends Component {
           </ul>
         </footer>
           
-        <div className="rotate">Please rotate Device</div>
+        <div className='rotate'>Please rotate Device</div>
       </div>        
     )
   }
 }
 
 export default App;
-
 
 
 
