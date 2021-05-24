@@ -42,11 +42,12 @@ form, .list {
 }
 
 .amount {
+  height: 19px;
   width: 7ch;
 }
 
 .ingredient {
-  width: 54ch;
+  width: 47ch;
 }
 
 .recipeTitle, .directions {
@@ -55,8 +56,29 @@ form, .list {
 
 .directions{
   height: 20ch;
+  white-space: pre-wrap;
 }
+
+.listDirections{
+  max-width: 70ch;
+  word-wrap: break-word;
+}
+
 
 select {
   padding: 0.8px;
+}
+
+.submit{
+  margin: 5px 200px;
+  height: 5ch;
+  width: 20ch;
+  border-radius: 20px;
+  background-color: gray;
+}
+
+.addSubtractButtons {
+  margin-left: 5px;
+  padding:0 5px;
+  /* border: 1px solid black; */
 }

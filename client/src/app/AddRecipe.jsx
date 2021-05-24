@@ -4,17 +4,23 @@ import axios from 'axios';
 
 
 class AddRecipe extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.addIngredientHandler = this.addIngredientHandler.bind(this);
+    this.minusIngredientHandler = this.minusIngredientHandler.bind(this);
     this.state = { 
       title: '',
-      amount: '',
-      unit: '',
-      ingredient: '',
-      ingredients: '', 
+      // amount: '',
+      // unit: '',
+      // ingredient: '',
+      ingredients: [{ 
+        amount: '', 
+        unit: '',
+        ingredient: ''
+      }], 
       directions: ''
     };
   }
@@ -27,10 +33,34 @@ class AddRecipe extends Component {
     });
   }
 
+  onChangeIngredientHandler(e){
+    this.setState({
+
+    });
+  }
+
+  addIngredientHandler(){
+    this.setState({
+      ingredients: this.state.ingredients.concat([{ 
+        amount: '', 
+        unit: '',
+        ingredient: ''
+      }])
+    })
+  }
+
+  minusIngredientHandler = index => () => {
+    this.setState({
+      ingredients: this.state.ingredients.filter( 
+        (element, elementIndex)=> index !== elementIndex || index == 0)
+    });
+  }
+
 
   //on submit, form adds inputs to state and sends state to server endpoint with post
   onSubmit(e) {
     e.preventDefault();
+
 
 
     //concatenates amount, unit, and ingredient name to send to server as one
@@ -39,7 +69,6 @@ class AddRecipe extends Component {
       \u00A0\u00A0 - \u00A0\u00A0 
       ${this.state.ingredient}
     `;    
-
   
 
 
@@ -57,7 +86,6 @@ class AddRecipe extends Component {
         })
             
     
-
 
     //resets state
     this.setState({
@@ -84,42 +112,60 @@ class AddRecipe extends Component {
               value={this.state.title}
               onChange={this.onChangeHandler}
             />
+
           <label>Ingredients: </label>
-            <span>
-              <input
-                className='amount'
-                type='text'
-                name='amount'
-                value={this.state.amount}
-                onChange={this.onChangeHandler}
-              /> 
-              <select 
-                className='amount' 
-                name='unit'
-                value={this.state.unit} 
-                onChange={this.onChangeHandler}
-              >            
-                  <option value=''></option>
-                  <option value='kg'>kg</option>
-                  <option value='g'>g</option>
-                  <option value='lbs'>lbs</option>
-                  <option value='oz'>oz</option>
-                  <option value='l'>l</option>
-                  <option value='ml'>ml</option>
-                  <option value='fl oz'>fl oz</option>
-                  <option value='cups'>cups</option>
-                  <option value='tbsp'>tbs</option>
-                  <option value='tsp'>tsp</option>
-              </select>
-              &nbsp;&nbsp;&nbsp;
-              <input
-                className='ingredient'
-                type='text'
-                name='ingredient'
-                value={this.state.ingredient}
-                onChange={this.onChangeHandler}
-              />
-            </span>
+            {this.state.ingredients.map((ingredient, index) => (
+                <span key={ingredient.index}>
+                  <input
+                    className='amount'
+                    type='text'
+                    name='amount'
+                    value={this.state.amount}
+                    onChange={this.onChangeHandler}
+                  /> 
+                  <select 
+                    className='amount' 
+                    name='unit'
+                    value={this.state.unit} 
+                    onChange={this.onChangeHandler}
+                  >            
+                      <option value=''></option>
+                      <option value='kg'>kg</option>
+                      <option value='g'>g</option>
+                      <option value='lbs'>lbs</option>
+                      <option value='oz'>oz</option>
+                      <option value='l'>l</option>
+                      <option value='ml'>ml</option>
+                      <option value='fl oz'>fl oz</option>
+                      <option value='cups'>cups</option>
+                      <option value='tbsp'>tbs</option>
+                      <option value='tsp'>tsp</option>
+                  </select>
+                  &nbsp;&nbsp;&nbsp;
+                  <input
+                    className='ingredient'
+                    type='text'
+                    name='ingredient'
+                    value={this.state.ingredient}
+                    onChange={this.onChangeHandler}
+                  />
+                  <button
+                    type="button"
+                    className="addSubtractButtons"
+                    onClick={this.addIngredientHandler}
+                  >
+                    +
+                  </button>
+                  <button
+                    type="button"
+                    className="addSubtractButtons"
+                    onClick={this.minusIngredientHandler(index)}
+                  >
+                    -
+                  </button>
+                </span>
+            ))}
+   
           <label>Directions: </label>
             <textarea
               className='directions'
@@ -128,7 +174,7 @@ class AddRecipe extends Component {
               value={this.state.directions}
               onChange={this.onChangeHandler}
             />
-          <input type='submit' value='Add recipe'/>
+          <button className='submit'>Add recipe</button>
         </form>
       </div>        
     )

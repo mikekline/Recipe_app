@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -37,11 +38,21 @@ class AllRecipes extends Component {
       <table>
         <tbody>
           <tr className='list' key={recipe.key}>
+            <Link 
+              to={{
+                pathname:`/recipe_book/recipes/${recipe.title}`, //how to actually render each page dynamicly though node render? then make a react  page to rout to though node, map app.get
+                state:{
+                  title: recipe.title,
+                  ingredients: recipe.ingredients,
+                  directions: recipe.directions
+                }
+              }}>
               <td>{recipe.title}</td>
-              <td>Ingredients:</td>
-              <td>&nbsp;&nbsp;{recipe.ingredients}</td>
-              <td>Directions:</td>
-              <td>&nbsp;&nbsp;{recipe.directions}</td>
+            </Link>
+            <td>Ingredients:</td>
+            <td>{recipe.ingredients}</td>
+            <td>Directions:</td>
+            <td className='listDirections'>{recipe.directions}</td>
           </tr>
         </tbody>
       </table>
