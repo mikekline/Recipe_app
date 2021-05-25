@@ -54,6 +54,11 @@ form, .list {
   width: 70ch;
 }
 
+.recipeTitleDisplay{
+  font-weight: bolder;
+  font-size: x-large;
+}
+
 .directions{
   height: 20ch;
   white-space: pre-wrap;

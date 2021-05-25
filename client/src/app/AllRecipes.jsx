@@ -39,6 +39,7 @@ class AllRecipes extends Component {
         <tbody>
           <tr className='list' key={recipe.key}>
             <Link 
+              className='recipeTitleDisplay'
               to={{
                 pathname:`/recipe_book/recipes/${recipe.title}`, //how to actually render each page dynamicly though node render? then make a react  page to rout to though node, map app.get
                 state:{
@@ -50,7 +51,8 @@ class AllRecipes extends Component {
               <td>{recipe.title}</td>
             </Link>
             <td>Ingredients:</td>
-            <td>{recipe.ingredients}</td>
+            {recipe.ingredients.map((ingredient, index) => <td>{ingredient}</td>)}
+            &nbsp;   
             <td>Directions:</td>
             <td className='listDirections'>{recipe.directions}</td>
           </tr>

@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import AddRecipe from './AddRecipe.jsx';
 import AllRecipes from './AllRecipes.jsx';
-import IncorporationForm from './test.jsx';
 import './css/RecipeBook.css';
 
 
@@ -15,9 +14,6 @@ class RecipeBook extends Component {
         <BrowserRouter>
         
             <nav>   
-            <Link className='bookOptions' to='/recipe_book/test'>
-                test
-              </Link>   
               <Link className='bookOptions' to='/recipe_book/Add_Recipe'>
                 Add a Recipe
               </Link>
@@ -26,10 +22,10 @@ class RecipeBook extends Component {
               </Link>
               {/* grocery list: takes ingrediants from recipes and adds them to a list able to +/- to list */}
               {/* search and sort recipe list */}
+              {/* catagories /manage catagories include user added catagories*/}
             </nav>
 
             <Switch>
-            <Route path='/recipe_book/test' component={IncorporationForm} />
               <Route path='/recipe_book/Add_Recipe' component={AddRecipe} />
               <Route path='/recipe_book/recipes' component={AllRecipes} />
             </Switch>

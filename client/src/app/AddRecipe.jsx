@@ -8,19 +8,18 @@ class AddRecipe extends Component {
     super();
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onChangeIngredientHandler = this.onChangeIngredientHandler.bind(this); 
     this.addIngredientHandler = this.addIngredientHandler.bind(this);
     this.minusIngredientHandler = this.minusIngredientHandler.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = { 
       title: '',
-      // amount: '',
-      // unit: '',
-      // ingredient: '',
       ingredients: [{ 
         amount: '', 
         unit: '',
         ingredient: ''
-      }], 
+      }],
+      lineBreak: '\u000D\u000A', 
       directions: ''
     };
   }
@@ -33,11 +32,18 @@ class AddRecipe extends Component {
     });
   }
 
-  onChangeIngredientHandler(e){
-    this.setState({
+  onChangeIngredientHandler = index => eventObject =>{
+    const newIngredients = this.state.ingredients.map((ingredient, ingredentIndex) => {
+      if (index !== ingredentIndex) return ingredient;
+      return {...ingredient, [eventObject.target.name]: eventObject.target.value}
+    });
 
+    this.setState({
+      ingredients: newIngredients
     });
   }
+
+  
 
   addIngredientHandler(){
     this.setState({
@@ -61,21 +67,22 @@ class AddRecipe extends Component {
   onSubmit(e) {
     e.preventDefault();
 
+   
 
-
-    //concatenates amount, unit, and ingredient name to send to server as one
-    const ingredientWithAmount = `
-      ${this.state.amount}${this.state.unit} 
-      \u00A0\u00A0 - \u00A0\u00A0 
-      ${this.state.ingredient}
-    `;    
-  
-
+    //concatenates each ingredent then concatenates amount, unit, and ingredient name to send to server as one
+    const allIngredients = this.state.ingredients.map((ingredient) => {
+      return ( `
+        ${ingredient.amount}${ingredient.unit} 
+        \u00A0\u00A0 - \u00A0\u00A0 
+        ${ingredient.ingredient}  
+      `);    
+    });
+      
 
     //prepares state to send to server and send with a post request
     const newRecipe = {
       title: this.state.title,
-      ingredients: ingredientWithAmount, //change later to be an array of ingrediants
+      ingredients: allIngredients, //change later to be an array of ingrediants
       directions: this.state.directions
     };
     
@@ -90,8 +97,11 @@ class AddRecipe extends Component {
     //resets state
     this.setState({
       title: '',
-      amount: '',
-      ingredient: '',
+      ingredients: [{ 
+        amount: '', 
+        unit: '',
+        ingredient: ''
+      }], 
       directions: ''
     })
   }
@@ -120,14 +130,14 @@ class AddRecipe extends Component {
                     className='amount'
                     type='text'
                     name='amount'
-                    value={this.state.amount}
-                    onChange={this.onChangeHandler}
+                    value={ingredient.amount}
+                    onChange={this.onChangeIngredientHandler(index)}
                   /> 
                   <select 
                     className='amount' 
                     name='unit'
-                    value={this.state.unit} 
-                    onChange={this.onChangeHandler}
+                    value={ingredient.unit} 
+                    onChange={this.onChangeIngredientHandler(index)}
                   >            
                       <option value=''></option>
                       <option value='kg'>kg</option>
@@ -146,8 +156,8 @@ class AddRecipe extends Component {
                     className='ingredient'
                     type='text'
                     name='ingredient'
-                    value={this.state.ingredient}
-                    onChange={this.onChangeHandler}
+                    value={ingredient.ingredient}
+                    onChange={this.onChangeIngredientHandler(index)}
                   />
                   <button
                     type="button"
