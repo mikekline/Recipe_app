@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+const dbConnection = process.env.DB_CONNECTION;
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/recipe_app', { useNewUrlParser: true })
+    .connect(dbConnection, { useNewUrlParser: true })
     .catch(e => {
         console.error('Connection error', e.message)
     });

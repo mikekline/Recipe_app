@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+require('dotenv').config();
+const addRecipe = process.env.REACT_APP_ADDRECIPE;
 
 
 
@@ -19,7 +21,6 @@ class AddRecipe extends Component {
         unit: '',
         ingredient: ''
       }],
-      lineBreak: '\u000D\u000A', 
       directions: ''
     };
   }
@@ -32,6 +33,8 @@ class AddRecipe extends Component {
     });
   }
 
+
+  
   onChangeIngredientHandler = index => eventObject =>{
     const newIngredients = this.state.ingredients.map((ingredient, ingredentIndex) => {
       if (index !== ingredentIndex) return ingredient;
@@ -58,7 +61,7 @@ class AddRecipe extends Component {
   minusIngredientHandler = index => () => {
     this.setState({
       ingredients: this.state.ingredients.filter( 
-        (element, elementIndex)=> index !== elementIndex || index == 0)
+        (element, elementIndex)=> index !== elementIndex || index === 0)
     });
   }
 
@@ -86,7 +89,7 @@ class AddRecipe extends Component {
       directions: this.state.directions
     };
     
-    axios.post('http://localhost:4000/recipe_app/add_recipe', newRecipe)
+    axios.post(addRecipe, newRecipe)
         .then(res => {console.log(res.data);})
         .catch(function (error){
             console.log(error);

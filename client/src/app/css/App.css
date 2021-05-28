@@ -67,7 +67,7 @@ header{
   /* font-family: 'ChopinScrip', sans-serif; */
   font-family: 'Petit Formal Script', cursive;
   /* font-family: 'sarah-script',sans-serif; */
-  font-size: 6vw;
+  /* font-size: 6vw; */
   font-weight: bolder;
 }
 
@@ -75,8 +75,11 @@ header{
 /* navigation */
 
 .backdrop {
+  margin-left: auto;
+  margin-right: auto;
   margin: auto;
   margin-bottom: 35vh;
+  box-shadow: 0 0 0 0;
 }
 
 .title {
@@ -90,6 +93,7 @@ header{
   grid-template-rows: 70px 10px 10px 70px;
   height: 190px;
   width: 200px;
+  margin-top: 30vh ;
 }
 
 nav a {

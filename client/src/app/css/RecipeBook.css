@@ -42,9 +42,10 @@ form, .list {
 }
 
 .amount {
-  height: 19px;
   width: 7ch;
 }
+
+
 
 .ingredient {
   width: 47ch;

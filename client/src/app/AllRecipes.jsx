@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
+require('dotenv').config();
+const getAllRecipes = process.env.REACT_APP_GETALLRECIPES;
 
 
 class AllRecipes extends Component {
@@ -19,7 +20,7 @@ class AllRecipes extends Component {
 
   //gets a list of all recipes from server
   componentDidMount() {
-    axios.get('http://localhost:4000/recipe_app/recipes')
+    axios.get(getAllRecipes)
         .then(response => {
             this.setState({allRecipes: response.data.data});
         })
@@ -48,14 +49,14 @@ class AllRecipes extends Component {
                   directions: recipe.directions
                 }
               }}>
-              <td>{recipe.title}</td>
+                <td>{recipe.title}</td>
             </Link>
             <td>Ingredients:</td>
             {recipe.ingredients.map((ingredient, index) => <td>{ingredient}</td>)}
-            &nbsp;   
+            &nbsp;
             <td>Directions:</td>
             <td className='listDirections'>{recipe.directions}</td>
-          </tr>
+            </tr>
         </tbody>
       </table>
     );
