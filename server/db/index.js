@@ -3,7 +3,7 @@ require('dotenv').config();
 const dbConnection = process.env.DB_CONNECTION;
 
 mongoose
-    .connect(dbConnection, { useNewUrlParser: true })
+    .connect(dbConnection, {  useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true   })
     .catch(e => {
         console.error('Connection error', e.message)
     });
@@ -12,3 +12,5 @@ mongoose
 const db = mongoose.connection;
 
 module.exports = db;
+
+// useNewUrlParser: true 

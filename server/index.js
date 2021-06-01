@@ -5,7 +5,9 @@ require('dotenv').config();
 const Port = process.env.PORT;
 
 app.use(cors());
-app.use(express.urlencoded());
+app.use(express.urlencoded({
+    extended: true
+  }));
 app.use(express.json());
 
 
@@ -24,8 +26,6 @@ app.listen(Port, () => {
 
 
 
-
-console.log("test")
 
 /* getting from server and displaying /test end point */ 
 // app.get('/test', (req, res) => {
