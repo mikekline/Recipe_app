@@ -19,8 +19,8 @@ class AllRecipes extends Component {
 
 
   //gets a list of all recipes from server
-  componentDidMount() {
-    axios.get(getAllRecipes)
+  async componentDidMount() {
+    await axios.get(getAllRecipes)
         .then(response => {
             this.setState({allRecipes: response.data.data});
         })

@@ -14,10 +14,10 @@ class RecipeBook extends Component {
         <BrowserRouter>
         
             <nav>   
-              <Link className='bookOptions' to='/recipe_book/Add_Recipe'>
+              <Link className='bookOptions' to='/Recipe_app/recipe_book/Add_Recipe'>
                 Add a Recipe
               </Link>
-              <Link className='bookOptions' to='/recipe_book/recipes'>
+              <Link className='bookOptions' to='/Recipe_app/recipe_book/recipes'>
                 All Recipes
               </Link>
               {/* grocery list: takes ingrediants from recipes and adds them to a list able to +/- to list */}
@@ -26,8 +26,8 @@ class RecipeBook extends Component {
             </nav>
 
             <Switch>
-              <Route path='/recipe_book/Add_Recipe' component={AddRecipe} />
-              <Route path='/recipe_book/recipes' component={AllRecipes} />
+              <Route path='/Recipe_app/recipe_book/Add_Recipe' component={AddRecipe} />
+              <Route path='/Recipe_app/recipe_book/recipes' component={AllRecipes} />
             </Switch>
          
         </BrowserRouter>

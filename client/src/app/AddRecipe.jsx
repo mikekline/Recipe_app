@@ -147,7 +147,7 @@ class AddRecipe extends Component {
                       <option value='g'>g</option>
                       <option value='lbs'>lbs</option>
                       <option value='oz'>oz</option>
-                      <option value='l'>l</option>
+                      <option value='L'>l</option>
                       <option value='ml'>ml</option>
                       <option value='fl oz'>fl oz</option>
                       <option value='cups'>cups</option>

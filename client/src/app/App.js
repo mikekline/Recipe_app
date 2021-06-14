@@ -21,13 +21,13 @@ class App extends Component {
             <p className='title'>Menu</p>
             
             <nav className='mainNav'>      
-              <Link className='card recipe' to='/recipe_book'>
+              <Link className='card recipe' to='/Recipe_app/recipe_book'>
                 <p className='cardTitle'>My Recipe book</p>
               </Link>
               <Link className='card bigOven' to='/bigoven'>
                 <img 
                   className='bigOvenImg' 
-                  src='http://mda.bigoven.com/images/logos/BigOven_logo_rgb150x40.png' 
+                  src='https://mda.bigoven.com/images/logos/BigOven_logo_rgb150x40.png' 
                   alt='BigOven logo'
                 />
                 <p className='cardTitle'>Recipes from Big oven</p>
@@ -41,7 +41,7 @@ class App extends Component {
             </nav>
 
             <Switch>
-              <Route path='/recipe_book' component={RecipeBook} />
+              <Route path='/Recipe_app/recipe_book' component={RecipeBook} />
               <Route exact path='/' component={Home} />
               <Route path='/*' component={NotFound} />
             </Switch>
