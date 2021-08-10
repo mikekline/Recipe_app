@@ -194,7 +194,7 @@ footer li {
   display:none;
 }
 
-@media screen and (orientation: landscape) and (max-device-width: 1280px)  {
+@media screen and (orientation: landscape) and (max-device-width: 990px)  {
   * {
     margin: 0;
   }
@@ -227,9 +227,11 @@ footer li {
 
 /* desktop styles */
 
-@media screen and (min-width: 1281px) {
+@media screen and (min-width: 1081px) {
   body {
     background-image: url('../../assets/food-1932466_1920.jpg');
+    background-size: cover;
+    background-position: center;
   }
 
   header {
